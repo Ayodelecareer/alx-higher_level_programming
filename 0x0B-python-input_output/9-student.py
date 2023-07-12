@@ -1,24 +1,22 @@
 #!/usr/bin/python3
+"""Defines a class Student."""
 
-"""
-script that adds all arguments to a Python list,
-and then save them to a file
-"""
 
-from sys import argv
-from os import path
+class Student:
+    """Represent a student."""
 
-save_to_json_file = __import__('7-save_to_json_file').save_to_json_file
-load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
+    def __init__(self, first_name, last_name, age):
+        """Initialize a new Student.
 
-filename = "add_item.json"
+        Args:
+            first_name (str): The first name of the student.
+            last_name (str): The last name of the student.
+            age (int): The age of the student.
+        """
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
 
-if path.isfile(filename):
-    nlist = load_from_json_file(filename)
-else:
-    nlist = []
-
-for i in range(1, len(argv)):
-    nlist.append(argv[i])
-
-save_to_json_file(nlist, filename)
+    def to_json(self):
+        """Get a dictionary representation of the Student."""
+        return self.__dict__
