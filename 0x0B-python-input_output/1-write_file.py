@@ -1,9 +1,9 @@
 #!/usr/bin/python3
+"""Defines a file-writing function."""
 
+def write_file(filename="", text=""):
+    """ function that writes a string to a text file (UTF8) and returns
+    the number of characters written"""
 
-def number_of_lines(filename=""):
-    """ function that returns the number of lines of a text file """
-
-    with open(filename) as myfile:
-        lines = myfile.readlines()
-    return len(lines)
+    with open(filename, "w", encoding="utf-8") as myfile:
+        return myfile.write(text)
